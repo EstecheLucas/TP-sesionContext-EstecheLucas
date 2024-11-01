@@ -1,9 +1,8 @@
 import React from "react";
 import { SessionProvider } from "./context/SessionProvider";
-import { useSession } from "./Hooks/useSession";
+import { useSession } from "./hooks/useSession";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import "animate.css";
 
 const AppContent = () => {
   const { user } = useSession();

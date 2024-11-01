@@ -2,13 +2,13 @@ import bcrypt from "bcryptjs";
 
 const user = {
     id: 1,
-    username: "Juan",
-    email: "juan@gmail.com",
+    username: "Lucas",
+    email: "lucas@gmail.com",
     password: bcrypt.hashSync("admin", 10),
     role: "admin",
 };
 
-// Almacena el usuario autenticado en memoria
+
 let authenticatedUser = null;
 
 export const Login = (req, res) => {
@@ -22,7 +22,7 @@ export const Login = (req, res) => {
         return res.status(401).json({ error: "Contraseña incorrecta" });
     }
 
-    // Guardar el usuario autenticado en la variable
+
     authenticatedUser = {
         id: user.id,
         username: user.username,
@@ -35,5 +35,4 @@ export const Login = (req, res) => {
         .json({ message: "Inicio de sesión exitoso", user: authenticatedUser });
 };
 
-// Verificar si hay un usuario autenticado
 export const isAuthenticated = () => authenticatedUser !== null;
